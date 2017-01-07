@@ -1,0 +1,181 @@
+//Item Upload Page Script
+
+<script type="text/javascript" language="javascript">
+    function HeaderCheckBoxClick(checkbox)
+    {
+        var gridView = document.getElementById("<%=uxUploadItemGrid.ClientID%>");
+        for (i = 1; i < gridView.rows.length; i++)
+        {
+            gridView.rows[i].cells[0].getElementsByTagName("INPUT")[0].checked = checkbox.checked;
+        
+        if (checkbox.checked)
+            {
+              gridView.rows[i].style.background = '#CCCCCC';
+
+             }
+            else
+            {
+                if (i % 2 ==0)
+                {
+                    gridView.rows[i].style.background = '#F7F7F7';
+                }
+                else 
+                {
+                    gridView.rows[i].style.background = '#E7E7FF';
+                
+                }
+            }
+       }
+       uploadEnableDisable();
+    }
+
+    function ChildCheckBoxClick(checkbox)
+    {
+        var atleastOneCheckBoxUnchecked = false;
+        var gridView = document.getElementById("<%=uxUploadItemGrid.ClientID%>");
+
+        for (i = 1; i < gridView.rows.length; i++)
+        {
+            if (gridView.rows[i].cells[0].getElementsByTagName("INPUT")[0].checked == false)
+            {
+                 if (i % 2 ==0)
+                {
+                    gridView.rows[i].style.background = '#F7F7F7';
+                }
+                else 
+                {
+                    gridView.rows[i].style.background = '#E7E7FF';
+                
+                }
+                atleastOneCheckBoxUnchecked = true;
+            }
+            else
+            {
+
+                gridView.rows[i].style.background = '#CCCCCC';
+            }
+        }
+        uploadEnableDisable();
+        gridView.rows[0].cells[0].getElementsByTagName("INPUT")[0].checked = !atleastOneCheckBoxUnchecked;
+    }
+    
+    
+    function uploadEnableDisable()
+    {
+    var gridView = document.getElementById("<%=uxUploadItemGrid.ClientID%>");
+    var upload = document.getElementById("<%=uxUpload.ClientID%>");
+    var count = 0 ;
+    for (i = 1; i < gridView.rows.length; i++)
+        {
+         if (gridView.rows[i].cells[0].getElementsByTagName("INPUT")[0].checked == true)
+         {
+         count += 1;
+         }
+        }
+            if (count>0)
+            {
+             upload.disabled=false;
+            }
+            else 
+            {
+            upload.disabled=true  ;
+            }
+
+    }
+    </script>
+
+
+
+
+
+//BP Upload Page Script
+
+<script type="text/javascript" language="javascript">
+    function HeaderCheckBoxClick(checkbox)
+    {
+        var gridView = document.getElementById("<%=uxUploadBPGrid.ClientID%>");
+        for (i = 1; i < gridView.rows.length; i++)
+        {
+            gridView.rows[i].cells[0].getElementsByTagName("INPUT")[0].checked = checkbox.checked;
+        
+        if (checkbox.checked)
+            {
+              gridView.rows[i].style.background = '#CCCCCC';
+
+             }
+            else
+            {
+                if (i % 2 ==0)
+                {
+                    gridView.rows[i].style.background = '#F7F7F7';
+                }
+                else 
+                {
+                    gridView.rows[i].style.background = '#E7E7FF';
+                
+                }
+            }
+       }
+       uploadEnableDisable();
+    }
+
+    function ChildCheckBoxClick(checkbox)
+    {
+        var atleastOneCheckBoxUnchecked = false;
+        var gridView = document.getElementById("<%=uxUploadBPGrid.ClientID%>");
+
+        for (i = 1; i < gridView.rows.length; i++)
+        {
+            if (gridView.rows[i].cells[0].getElementsByTagName("INPUT")[0].checked == false)
+            {
+                 if (i % 2 ==0)
+                {
+                    gridView.rows[i].style.background = '#F7F7F7';
+                }
+                else 
+                {
+                    gridView.rows[i].style.background = '#E7E7FF';
+                
+                }
+                atleastOneCheckBoxUnchecked = true;
+            }
+            else
+            {
+
+                gridView.rows[i].style.background = '#CCCCCC';
+            }
+            
+        }
+            uploadEnableDisable();
+        gridView.rows[0].cells[0].getElementsByTagName("INPUT")[0].checked = !atleastOneCheckBoxUnchecked;
+    }
+    
+    function uploadEnableDisable()
+    {
+    var gridView = document.getElementById("<%=uxUploadBPGrid.ClientID%>");
+    var upload = document.getElementById("<%=uxUpload.ClientID%>");
+    var count = 0 ;
+    for (i = 1; i < gridView.rows.length; i++)
+        {
+         if (gridView.rows[i].cells[0].getElementsByTagName("INPUT")[0].checked == true)
+         {
+         count += 1;
+         }
+        }
+            if (count>0)
+            {
+             upload.disabled=false;
+            }
+            else 
+            {
+            upload.disabled=true  ;
+            }
+
+    }
+    
+
+        
+        
+        
+ 
+    </script>
